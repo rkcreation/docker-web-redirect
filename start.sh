@@ -16,11 +16,17 @@ else
 	echo "Redirecting HTTP requests to ${REDIRECT_TARGET}..."
 fi
 
+STATUS_CODE=${REDIRECT_STATUS:-301}
+STATUS_CODE_NGINX=permanent
+if [[ "$STATUS_CODE" == "302" ]]; then
+	STATUS_CODE_NGINX=redirect
+fi
+
+echo "Redirecting HTTP requests with status code ${STATUS_CODE}..."
 cat <<EOF > /etc/nginx/conf.d/default.conf
 server {
 	listen 80;
-
-	rewrite ^/(.*)\$ $REDIRECT_TARGET\$1 permanent;
+	rewrite ^/(.*)\$ $REDIRECT_TARGET\$1 ${STATUS_CODE_NGINX};
 }
 EOF
 
