@@ -11,7 +11,8 @@ This Docker container listens on port 80 and redirects all web traffic permanent
 
 ## Usage ##
 ### Docker run ###
-The target domain/URL is set by the `REDIRECT_TARGET` environment variable.  
+The target domain/URL is set by the `REDIRECT_TARGET` environment variable.
+The redirect type is set by the `REDIRECT_STATUS` environment variable (defaults to 301, may be set to 301 or 302 only).
 Possible redirect targets include domains (`<NEW_DOMAIN.COM>`), paths (`<NEW_DOMAIN.COM>/my_page`) or specific protocols (`https://<NEW_DOMAIN.COM>/my_page`).  
 
 **Example:** `$ docker run --rm -d -e REDIRECT_TARGET=<NEW_DOMAIN.COM> -p 80:80 rkcreation/web-redirect`
@@ -35,6 +36,7 @@ services:
     environment:
       - VIRTUAL_HOST=<OLD_DOMAIN.COM>
       - REDIRECT_TARGET=<NEW_DOMAIN.COM>
+      - REDIRECT_STATUS=301
 ```
 
 ### With Traefik ###
@@ -48,6 +50,7 @@ services:
     restart: always
     environment:
       - REDIRECT_TARGET=<NEW_DOMAIN.COM>
+      - REDIRECT_STATUS=301
     labels:
       - "traefik.frontend.rule=Host:<OLD_DOMAIN.COM>;"
 ```
