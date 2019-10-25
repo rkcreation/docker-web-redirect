@@ -3,9 +3,9 @@ if [ -z "$REDIRECT_TARGET" ]; then
 	echo "Redirect target variable not set (REDIRECT_TARGET)"
 	exit 1
 else
-	# Add http if not set
+	# Add https if not set
 	if ! [[ $REDIRECT_TARGET =~ ^https?:// ]]; then
-		REDIRECT_TARGET="http://$REDIRECT_TARGET"
+		REDIRECT_TARGET="https://$REDIRECT_TARGET"
 	fi
 
 	# Add trailing slash
