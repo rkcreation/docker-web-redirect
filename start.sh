@@ -26,7 +26,12 @@ echo "Redirecting HTTP requests with status code ${STATUS_CODE}..."
 cat <<EOF > /etc/nginx/conf.d/default.conf
 server {
 	listen 80;
-	rewrite ^/(.*)\$ $REDIRECT_TARGET\$1 ${STATUS_CODE_NGINX};
+	location /nginx_status {
+        stub_status;
+    }
+	location / {
+		rewrite ^/(.*)\$ $REDIRECT_TARGET\$1 ${STATUS_CODE_NGINX};
+	}
 }
 EOF
 
