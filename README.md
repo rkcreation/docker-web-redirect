@@ -2,12 +2,12 @@
 
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/rkcreation/web-redirect?style=for-the-badge) ![Docker Pulls](https://img.shields.io/docker/pulls/rkcreation/web-redirect?style=for-the-badge) ![Docker Stars](https://img.shields.io/docker/stars/rkcreation/web-redirect?style=for-the-badge) ![GitHub stars](https://img.shields.io/github/stars/rkcreation/docker-web-redirect?label=GitHub%20Stars&style=for-the-badge) ![GitHub last commit](https://img.shields.io/github/last-commit/rkcreation/docker-web-redirect?style=for-the-badge)
 
-This Docker container listens on port 80 and redirects all web traffic permanently to the given target domain/URL.
+This Docker container exposes port 80 and redirects all web traffic to the given target domain/URL.
 
 ## Features ##
 - Lightweight: Uses only ~2 MB RAM on Linux
 - Keeps the URL path and GET parameters
-- Permanent redirect (HTTP 301) or Temporary redirect (HTTP 302)
+- Permanent redirect (HTTP 301) or Temporary redirect (HTTP 302) or Transparent redirect (proxy pass)
 
 ## Usage ##
 ### Docker run ###
@@ -65,10 +65,10 @@ services:
 
 ## Changelog ##
 
-### Version 1.0 ###
-
-Versions 1.0.x provides Redirect target and status.
-
-### Version 1.1 ###
+### Version 1.1 (latest) ###
 
 Versions 1.1.x provides Redirect target, status (301 / 302 / transparent) and nginx_status path.
+
+### Version 1.0 ###
+
+Versions 1.0.x provides Redirect target and status (301 / 302).
