@@ -1,6 +1,6 @@
 # Docker Web-Redirect #
 
-![Docker Build Status](https://img.shields.io/docker/build/rkcreation/web-redirect.svg) ![Docker Pulls](https://img.shields.io/docker/pulls/rkcreation/web-redirect.svg) ![Docker Stars](https://img.shields.io/docker/stars/rkcreation/web-redirect.svg)
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/rkcreation/web-redirect?style=for-the-badge) ![Docker Pulls](https://img.shields.io/docker/pulls/rkcreation/web-redirect?style=for-the-badge) ![Docker Stars](https://img.shields.io/docker/stars/rkcreation/web-redirect?style=for-the-badge)
 
 This Docker container listens on port 80 and redirects all web traffic permanently to the given target domain/URL.
 
