@@ -67,8 +67,8 @@ services:
 
 ### Version 1.0 ###
 
-Versions 1.0.x provides Redirect target and status
+Versions 1.0.x provides Redirect target and status.
 
 ### Version 1.1 ###
 
-Versions 1.1.x provides Redirect target, status
+Versions 1.1.x provides Redirect target, status (301 / 302 / transparent) and nginx_status path.
